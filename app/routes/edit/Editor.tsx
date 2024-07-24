@@ -21,11 +21,24 @@ export default function Editor() {
       Highlight,
       TextAlign.configure({ types: ['heading', 'paragraph'] }),
     ],
-    content: '<h1></h1><p>Nee<em>d to</em> set default co<strong>ntentffdg</strong></p>',
+    content: getInitialContent(),
     onUpdate({ editor }) {
-      setEditorContent(editor.getHTML())
+      updateEditor(editor.getHTML())
     },
+    immediatelyRender: false, //This is needed as it won't render on first render aka the server
   })
+
+  function getInitialContent() {
+    //if on client aka local storage, get it, else don't.
+    if (typeof window !== 'undefined') return localStorage.getItem('editorContent')
+    return ''
+  }
+
+  function updateEditor(content: string) {
+    //if on client aka local storage, set it, else don't.
+    if (typeof window !== 'undefined') localStorage.setItem('editorContent', content)
+    setEditorContent(content)
+  }
 
   return (
     <>

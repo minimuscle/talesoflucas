@@ -1,9 +1,9 @@
 import { Outlet } from '@remix-run/react'
 
-export default function Story() {
+export default function Layout() {
   return (
     <>
-      <h1>Layout</h1>
+      <h1>Header Read</h1>
       <Outlet />
     </>
   )

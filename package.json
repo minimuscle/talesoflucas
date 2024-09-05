@@ -28,6 +28,7 @@
     "@tiptap/pm": "^2.5.5",
     "@tiptap/react": "^2.5.5",
     "@tiptap/starter-kit": "^2.5.5",
+    "classnames": "^2.5.1",
     "isbot": "^4.1.0",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",

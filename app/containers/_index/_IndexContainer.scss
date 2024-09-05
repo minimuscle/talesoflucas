@@ -1,0 +1,9 @@
+@import "/app/styles/global";
+
+.IndexContainer {
+  &__Card {
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  }
+}

@@ -13,8 +13,9 @@
   justify-content: space-between;
   align-items: center;
   height: $padding * 10;
-  padding: $padding * 2;
+  padding: ($padding * 2) ($padding * 8);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 
   a {
     text-decoration: none;
@@ -30,6 +31,7 @@
 .Body {
   padding: $padding * 4;
   flex-grow: 1;
+  background-color: $background_light_grey;
 }
 
 .Footer {

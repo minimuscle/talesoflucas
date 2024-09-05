@@ -35,9 +35,6 @@ module.exports = {
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
       ],
-      rules: {
-        '@typescript-eslint/no-explicit-any': 'off',
-      },
       settings: {
         react: {
           version: "detect",
@@ -74,6 +71,9 @@ module.exports = {
         "plugin:import/recommended",
         "plugin:import/typescript",
       ],
+      rules: {
+        "@typescript-eslint/no-explicit-any": "off",
+      },
     },
 
     // Node
@@ -84,4 +84,4 @@ module.exports = {
       },
     },
   ],
-};
+}

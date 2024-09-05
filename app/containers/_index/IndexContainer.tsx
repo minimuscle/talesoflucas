@@ -4,6 +4,12 @@
 import { useLoaderData } from "@remix-run/react"
 
 /******************************************************************
+ *  COMPONENT IMPORTS                                             *
+ ******************************************************************/
+import { Text } from "~/components/Text"
+import { Button } from "@mantine/core"
+
+/******************************************************************
  *  TYPE IMPORTS                                                  *
  ******************************************************************/
 import type { loader } from "~/routes/_app+/_index/loader"
@@ -12,7 +18,6 @@ import type { loader } from "~/routes/_app+/_index/loader"
  *  CONSTS                                                        *
  ******************************************************************/
 import "./_IndexContainer.scss"
-import { Text } from "~/components/Text"
 
 /******************************************************************
  *  COMPONENT START                                               *
@@ -30,7 +35,10 @@ export function IndexContainer() {
       {data?.map((story) => (
         <div className="IndexContainer__Card" key={story.id}>
           <Text.Heading align--center>{story.title}</Text.Heading>
-          <Text align--right>{story.description}</Text>
+          <Text>{story.description}</Text>
+          <Button color="blue" fullWidth>
+            Read More
+          </Button>
         </div>
       ))}
     </div>

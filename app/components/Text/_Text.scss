@@ -1,11 +1,39 @@
 ._Text {
-  &__align--center {
+  &.align--center {
     text-align: center;
   }
-  &__align--left {
+  &.align--left {
     text-align: left;
   }
-  &__align--right {
+  &.align--right {
     text-align: right;
+  }
+
+  &.bold {
+    font-weight: 600;
+  }
+
+  &.italic {
+    font-style: italic;
+  }
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  &.capitalize {
+    text-transform: capitalize;
+  }
+
+  &.lowercase {
+    text-transform: lowercase;
+  }
+
+  &.lineThrough {
+    text-decoration: line-through;
+  }
+
+  &.underline {
+    text-decoration: underline;
   }
 }

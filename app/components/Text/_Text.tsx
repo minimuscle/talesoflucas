@@ -14,11 +14,23 @@ type AlignProps = {
   "align--right"?: boolean
 }
 
+type StyleProps = {
+  italic?: boolean
+  semiBold?: boolean
+  bold?: boolean
+  underline?: boolean
+  lineThrough?: boolean
+  capitalize?: boolean
+  uppercase?: boolean
+  lowercase?: boolean
+}
+
 type TextProps = {
   as?: ElementType
   children?: ReactNode
   className?: string
-} & AlignProps
+} & AlignProps &
+  StyleProps
 
 /******************************************************************
  *  CONSTS                                                        *
@@ -34,6 +46,7 @@ export function _Text({
   className = "",
   ...props
 }: TextProps) {
+  // Alignment is split into separate keys to allow for only one alignment to be applied
   const alignmentKeys = [
     "align--center",
     "align--left",
@@ -41,14 +54,30 @@ export function _Text({
   ] as const
   const alignmentClass = alignmentKeys.find((key) => props[key])
 
+  const styleMapping = [
+    "italic",
+    "semiBold",
+    "bold",
+    "underline",
+    "lineThrough",
+    "capitalize",
+    "uppercase",
+    "lowercase",
+  ] as const
+
   const { [alignmentClass!]: _, ...restProps } = props
+
+  const classNameValue = classNames(
+    "_Text",
+    className,
+    alignmentClass,
+    ...Object.values(styleMapping).map((style) => props[style] && style)
+  )
+  console.log(classNameValue)
 
   /*********  RENDER  *********/
   return (
-    <Component
-      className={`_Text${className}__${alignmentClass || ""}`}
-      {...restProps}
-    >
+    <Component className={classNameValue} {...restProps}>
       {children}
     </Component>
   )

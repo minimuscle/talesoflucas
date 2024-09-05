@@ -1,7 +1,7 @@
 /******************************************************************
  *  BASE IMPORTS                                                  *
  ******************************************************************/
-import { Outlet } from "@remix-run/react"
+import { Link, Outlet } from "@remix-run/react"
 
 /******************************************************************
  *  CONSTS                                                        *
@@ -14,19 +14,43 @@ import "./_layout.scss"
 export function Layout() {
   /*****  RENDER HELPERS  *****/
   function renderHeader() {
-    return <div className="header">Header</div>
+    return (
+      <div className="Header">
+        <Link to="/">
+          <h1>Tales of Lucas</h1>
+        </Link>
+        <div className="Header__Group">
+          <Link to="/browse">Browse</Link>
+          <Link to="/about">About</Link>
+          <Link to="/login">Login</Link>
+        </div>
+      </div>
+    )
   }
 
   function renderFooter() {
-    return <div>Footer</div>
+    return (
+      <div className="Footer">
+        <Link to="/">
+          <h1>Tales of Lucas - Footer</h1>
+        </Link>
+        <div className="Header__Group">
+          <Link to="/browse">Browse</Link>
+          <Link to="/about">About</Link>
+          <Link to="/login">Login</Link>
+        </div>
+      </div>
+    )
   }
 
   /*********  RENDER  *********/
   return (
-    <>
+    <div className="Container">
       {renderHeader()}
-      <Outlet />
+      <div className="Body">
+        <Outlet />
+      </div>
       {renderFooter()}
-    </>
+    </div>
   )
 }

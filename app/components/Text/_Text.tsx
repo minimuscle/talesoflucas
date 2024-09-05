@@ -3,7 +3,7 @@
  *  TYPE IMPORTS                                                  *
  ******************************************************************/
 import classNames from "classnames"
-import type { ElementType, ReactNode } from "react"
+import type { ReactNode } from "react"
 
 /******************************************************************
  *  TYPE DEFINITIONS                                              *
@@ -25,13 +25,23 @@ type StyleProps = {
   lowercase?: boolean
 }
 
+type ColorProps = {
+  primary?: boolean
+  secondary?: boolean
+  success?: boolean
+  danger?: boolean
+  warning?: boolean
+  info?: boolean
+}
+
 type TextProps = {
   as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span"
   children?: ReactNode
   className?: string
   span?: boolean
 } & AlignProps &
-  StyleProps
+  StyleProps &
+  ColorProps
 
 /******************************************************************
  *  CONSTS                                                        *
@@ -67,12 +77,23 @@ export function _Text({
     "lowercase",
   ] as const
 
+  const colorKeys = [
+    "primary",
+    "secondary",
+    "success",
+    "danger",
+    "warning",
+    "info",
+  ] as const
+  const colorClass = colorKeys.find((key) => props[key])
+
   const { [alignmentClass!]: _, ...restProps } = props
 
   const classNameValue = classNames(
     "_Text",
     className,
     alignmentClass,
+    colorClass,
     ...Object.values(styleMapping).map((style) => props[style] && style)
   )
 

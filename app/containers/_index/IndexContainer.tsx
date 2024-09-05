@@ -35,7 +35,9 @@ export function IndexContainer() {
       {data?.map((story) => (
         <div className="IndexContainer__Card" key={story.id}>
           <Text.Heading align--center>{story.title}</Text.Heading>
-          <Text>{story.description}</Text>
+          <Text>
+            {story.description} <Text span>This is span</Text>
+          </Text>
           <Button color="blue" fullWidth>
             Read More
           </Button>

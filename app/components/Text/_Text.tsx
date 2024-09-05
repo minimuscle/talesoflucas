@@ -26,9 +26,10 @@ type StyleProps = {
 }
 
 type TextProps = {
-  as?: ElementType
+  as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span"
   children?: ReactNode
   className?: string
+  span?: boolean
 } & AlignProps &
   StyleProps
 
@@ -44,6 +45,7 @@ export function _Text({
   as: Component = "p",
   children,
   className = "",
+  span = false,
   ...props
 }: TextProps) {
   // Alignment is split into separate keys to allow for only one alignment to be applied
@@ -73,6 +75,8 @@ export function _Text({
     alignmentClass,
     ...Object.values(styleMapping).map((style) => props[style] && style)
   )
+
+  if (span) Component = "span"
 
   /*********  RENDER  *********/
   return (

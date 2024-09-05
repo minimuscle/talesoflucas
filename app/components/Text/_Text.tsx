@@ -73,7 +73,6 @@ export function _Text({
     alignmentClass,
     ...Object.values(styleMapping).map((style) => props[style] && style)
   )
-  console.log(classNameValue)
 
   /*********  RENDER  *********/
   return (

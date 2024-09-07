@@ -7,7 +7,7 @@ export const API = {
   story: {
     GET: {
       latest: async (request: Request) => {
-        const { data, error } = await getSupabase(request)
+        return getSupabase(request)
           .from("stories")
           .select(
             `
@@ -16,12 +16,11 @@ export const API = {
           snippet,
           created_at,
           updated_at,
+          chapters,
           users (id, username)
           `
           )
           .limit(10)
-        console.log(data, "error: ", error)
-        return getSupabase(request).from("stories").select().limit(10)
       },
     },
   },

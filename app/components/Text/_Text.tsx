@@ -76,6 +76,13 @@ export function _Text({
     "uppercase",
     "lowercase",
   ] as const
+  //check props to see if any of the style keys are true
+  const styleClass = styleMapping.filter((key) => props[key])
+
+  //filter props to remove the styleClass keys.
+  styleClass.forEach((style) => {
+    delete props[style]
+  })
 
   const colorKeys = [
     "primary",
@@ -94,8 +101,10 @@ export function _Text({
     className,
     alignmentClass,
     colorClass,
-    ...Object.values(styleMapping).map((style) => props[style] && style)
+    styleClass
   )
+
+  //console.log("rest", styleClass)
 
   if (span) Component = "span"
 

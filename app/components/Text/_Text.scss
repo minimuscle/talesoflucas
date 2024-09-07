@@ -1,4 +1,6 @@
 ._Text {
+  margin: 0;
+
   &.align--center {
     text-align: center;
   }
@@ -39,5 +41,9 @@
 
   &.primary {
     color: #ea00ff;
+  }
+
+  &.secondary {
+    color: #7b97a5;
   }
 }

@@ -1,0 +1,15 @@
+.TextEditor {
+  &.mantine-RichTextEditor-root {
+    .mantine-RichTextEditor-content {
+      min-height: 500px;
+    }
+
+    .mantine-RichTextEditor-toolbar {
+      --rte-sticky-offset: 0 !important;
+    }
+  }
+
+  .right {
+    float: right;
+  }
+}

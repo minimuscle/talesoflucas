@@ -1,6 +1,12 @@
+import { TextEditor } from "~/components/TextEditor"
+
 /******************************************************************
  *  COMPONENT START                                               *
  ******************************************************************/
-export default function Browse() {
-  return <div>Browse</div>
+export function WriteContainer() {
+  return (
+    <>
+      <TextEditor />
+    </>
+  )
 }

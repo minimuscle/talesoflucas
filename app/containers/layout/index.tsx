@@ -21,7 +21,7 @@ export function Layout() {
         </Link>
         <div className="Header__Group">
           <Link to="/browse">Browse</Link>
-          <Link to="/about">About</Link>
+          <Link to="/write">Write</Link>
           <Link to="/login">Login</Link>
         </div>
       </div>

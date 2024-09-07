@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react"
 import "@mantine/core/styles.css"
+import "@mantine/tiptap/styles.css"
 import { theme } from "./util/theme"
 
 export function Layout({ children }: { children: React.ReactNode }) {

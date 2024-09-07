@@ -1,6 +1,12 @@
+import { WriteContainer } from "~/containers/write"
+
 /******************************************************************
  *  COMPONENT START                                               *
  ******************************************************************/
-export default function Browse() {
-  return <div>Browse</div>
+export default function Write() {
+  return (
+    <>
+      <WriteContainer />
+    </>
+  )
 }

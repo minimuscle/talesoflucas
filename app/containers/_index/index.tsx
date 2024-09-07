@@ -18,6 +18,7 @@ import type { loader } from "~/routes/_app+/_index/loader"
  *  CONSTS                                                        *
  ******************************************************************/
 import "./_IndexContainer.scss"
+import { Card } from "./components/Card/Card"
 
 /******************************************************************
  *  COMPONENT START                                               *
@@ -31,17 +32,9 @@ export function IndexContainer() {
       <p>Feel free to browse around</p>
       <h2>Check out our latest stories:</h2>
 
-      {/** //TODO: Conver this into a global card */}
+      {/** //TODO: Convert this into a global card */}
       {data?.map((story) => (
-        <div className="IndexContainer__Card" key={story.id}>
-          <Text.Heading align--center>{story.title}</Text.Heading>
-          <Text primary>
-            {story.description} <Text span>This is span</Text>
-          </Text>
-          <Button color="blue" fullWidth>
-            Read More
-          </Button>
-        </div>
+        <Card story={story} key={story.id} />
       ))}
     </div>
   )

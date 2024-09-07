@@ -87,7 +87,7 @@ export function _Text({
   ] as const
   const colorClass = colorKeys.find((key) => props[key])
 
-  const { [alignmentClass!]: _, ...restProps } = props
+  const { [alignmentClass!]: _, [colorClass!]: __, ...restProps } = props
 
   const classNameValue = classNames(
     "_Text",
